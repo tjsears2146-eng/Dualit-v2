@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#070812" />
+  <meta name="description" content="Duality is a fast 40-card constructed Magic format built around paired cards and the Resonance mechanic." />
+  <meta property="og:title" content="Duality Format" />
+  <meta property="og:description" content="Build With Less, Play With More." />
+  <meta property="og:image" content="https://dualityformat.com/assets/playtest-poster.jpg" />
+  <meta property="og:url" content="https://dualityformat.com" />
+  <title>Duality Format | Build With Less, Play With More</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <canvas id="starfield" aria-hidden="true"></canvas>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="cursor-glow" aria-hidden="true"></div>
+
+  <header class="site-header" id="siteHeader">
+    <a class="brand" href="#top" aria-label="Duality home">
+      <span class="brand-sigil">II</span>
+      <span class="brand-word">DUALITY</span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+    <nav class="nav" id="nav">
+      <a href="#about">About</a>
+      <a href="#rules">Rules</a>
+      <a href="#resonance">Resonance</a>
+      <a href="#deck-checker">Deck Checker</a>
+      <a href="#playtest">Playtest</a>
+      <button class="nav-ai" data-open-ai>Ask Resonance AI</button>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="portal portal-left" aria-hidden="true"></div>
+      <div class="portal portal-right" aria-hidden="true"></div>
+      <div class="hero-runes" aria-hidden="true"></div>
+      <div class="hero-content reveal">
+        <p class="eyebrow">A community-built 40-card constructed format</p>
+        <h1>DUA<span class="hero-ii">II</span>TY</h1>
+        <p class="motto">Build With Less, Play With More.</p>
+        <p class="hero-copy">Fast games, brutal choices, and a signature mechanic that turns every duplicate into a decision.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#rules">Learn the format</a>
+          <button class="button glass" data-open-ai>Ask the rules AI</button>
+        </div>
+        <div class="hero-stats" aria-label="Format summary">
+          <div><strong>40</strong><span>Cards</span></div>
+          <div><strong>15×2</strong><span>Nonlands</span></div>
+          <div><strong>10</strong><span>Lands</span></div>
+          <div><strong>20</strong><span>Life</span></div>
+        </div>
+      </div>
+      <a class="scroll-cue" href="#about" aria-label="Scroll to learn more"><span></span></a>
+    </section>
+
+    <section id="about" class="section intro reveal">
+      <div>
+        <p class="section-kicker">Why Duality</p>
+        <h2>Less filler.<br />More actual game.</h2>
+      </div>
+      <div class="intro-copy">
+        <p>Duality compresses constructed Magic into forty cards without shrinking the strategy. Every deck contains fifteen paired nonland cards, exactly ten lands, and no dead weight that wandered in because humans fear empty deck slots.</p>
+        <p>The result is a faster format where deck construction matters before the first draw and every duplicate can become fuel for <strong>Resonance</strong>.</p>
+      </div>
+    </section>
+
+    <section id="rules" class="section rules-section">
+      <div class="section-heading reveal">
+        <p class="section-kicker">Core rules</p>
+        <h2>Simple enough to learn.<br />Deep enough to break.</h2>
+      </div>
+      <div class="rule-grid">
+        <article class="rule-card reveal"><div class="rule-icon">40</div><h3>Exactly 40 cards</h3><p>No more. No less. The deck is the deck.</p></article>
+        <article class="rule-card reveal"><div class="rule-icon">II</div><h3>15 unique nonlands</h3><p>Exactly two copies of each, for 30 nonland cards total.</p></article>
+        <article class="rule-card reveal"><div class="rule-icon">10</div><h3>Exactly 10 lands</h3><p>Basic lands in any mix. Any nonbasic is limited to two copies.</p></article>
+        <article class="rule-card reveal"><div class="rule-icon">20</div><h3>20 starting life</h3><p>Normal win conditions and the London Mulligan.</p></article>
+        <article class="rule-card reveal"><div class="rule-icon">∞</div><h3>Open card pool</h3><p>Every normal Magic card is legal. Un-cards are the only cards excluded.</p></article>
+        <article class="rule-card reveal"><div class="rule-icon">0</div><h3>No ban list</h3><p>Nothing is banned at launch. Playtesting decides what deserves scrutiny.</p></article>
+      </div>
+      <div class="rules-callout reveal"><strong>Land means Land.</strong> Mana rocks, mana dorks, rituals, Treasures, and other nonland mana sources count among your 30 nonland cards.</div>
+    </section>
+
+    <section id="resonance" class="section resonance-section">
+      <div class="resonance-visual reveal" aria-label="Resonance mechanic visual">
+        <div class="card-orbit orbit-one"><div class="mini-card">SPELL</div></div>
+        <div class="card-orbit orbit-two"><div class="mini-card twin">TWIN</div></div>
+        <div class="resonance-core"><span>II</span><small>RESONANCE</small></div>
+      </div>
+      <div class="resonance-copy reveal">
+        <p class="section-kicker">Signature mechanic</p>
+        <h2>Resonance</h2>
+        <blockquote>Once each turn, as you cast a spell, you may exile another card with the same name from your hand. If you do, you may spend mana as though it were mana of any color to cast that spell.</blockquote>
+        <p>Resonance does not reduce the spell’s cost. It trades the second copy for perfect color fixing. You keep tempo, but you lose the twin forever. Convenient, cruel, and beautifully on theme.</p>
+        <button class="text-button" data-open-ai data-prompt="Explain Resonance with three clear examples, including an instant on an opponent's turn.">Show me examples →</button>
+      </div>
+    </section>
+
+    <section id="deck-checker" class="section checker-section">
+      <div class="section-heading reveal">
+        <p class="section-kicker">Instant deck check</p>
+        <h2>Paste a list. Find the problems.</h2>
+        <p>The checker verifies the structural rules locally in your browser. Nothing is uploaded because not every simple task needs to be fed into a hungry server farm.</p>
+      </div>
+      <div class="checker reveal">
+        <div class="checker-input">
+          <label for="deckList">Deck list</label>
+          <textarea id="deckList" spellcheck="false" placeholder="Example:
+2 Lightning Bolt
+2 Counterspell
+...
+10 Island"></textarea>
+          <div class="checker-actions">
+            <button class="button primary" id="checkDeck">Check deck</button>
+            <button class="button glass" id="loadExample">Load example</button>
+            <button class="button text-only" id="clearDeck">Clear</button>
+          </div>
+        </div>
+        <div class="checker-output" id="deckResults" aria-live="polite">
+          <div class="empty-state"><span>II</span><p>Your verdict will appear here.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="playtest" class="section playtest-section">
+      <div class="playtest-copy reveal">
+        <p class="section-kicker">Help shape the format</p>
+        <h2>Playtest. Give feedback. Win prizes.</h2>
+        <p>Run it at the kitchen table, your local game store, or anywhere two people are willing to turn cardboard into a dispute over priority.</p>
+        <div class="hero-actions left">
+          <a class="button primary" href="mailto:support@dualityformat.com?subject=Duality%20Playtest%20Event">Host an event</a>
+          <a class="button glass" href="assets/playtest-poster.jpg" download>Download poster</a>
+        </div>
+      </div>
+      <div class="poster-frame reveal"><img src="assets/playtest-poster.jpg" alt="Duality playtest poster" loading="lazy" /></div>
+    </section>
+
+    <section class="section ai-promo reveal">
+      <div>
+        <p class="section-kicker">Built-in AI guide</p>
+        <h2>Ask Resonance AI.</h2>
+        <p>Get rule explanations, deck structure help, playtest guidance, and LGS event answers without digging through six pages of forum arguments.</p>
+      </div>
+      <button class="button primary" data-open-ai>Open Resonance AI</button>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-brand"><span class="brand-sigil">II</span><span>DUALITY</span></div>
+    <p>Build With Less, Play With More.</p>
+    <div class="footer-links"><a href="mailto:support@dualityformat.com">support@dualityformat.com</a><a href="https://dualityformat.com">dualityformat.com</a></div>
+    <p class="legal">Duality is an unofficial community format and is not affiliated with, endorsed, sponsored, or specifically approved by Wizards of the Coast LLC.</p>
+  </footer>
+
+  <button class="ai-fab" data-open-ai aria-label="Open Resonance AI"><span>II</span><b>Ask AI</b></button>
+
+  <div class="ai-modal" id="aiModal" aria-hidden="true">
+    <div class="ai-backdrop" data-close-ai></div>
+    <section class="ai-panel" role="dialog" aria-modal="true" aria-labelledby="aiTitle">
+      <header class="ai-header">
+        <div><span class="ai-sigil">II</span><div><h2 id="aiTitle">Resonance AI</h2><p>Duality rules and deck assistant</p></div></div>
+        <button class="ai-close" data-close-ai aria-label="Close AI assistant">×</button>
+      </header>
+      <div class="ai-messages" id="aiMessages" aria-live="polite">
+        <div class="message assistant"><p>I know the current Duality rules, Resonance, deck construction, and playtest basics. Ask me something useful before somebody asks whether Sol Ring is good.</p></div>
+      </div>
+      <div class="ai-chips">
+        <button data-ai-chip="Explain Duality in thirty seconds.">Explain Duality</button>
+        <button data-ai-chip="Explain Resonance with an example.">Explain Resonance</button>
+        <button data-ai-chip="What makes a Duality deck legal?">Check legality rules</button>
+      </div>
+      <form class="ai-form" id="aiForm">
+        <textarea id="aiInput" rows="1" maxlength="2500" placeholder="Ask about rules, decks, or playtests…" required></textarea>
+        <button type="submit" aria-label="Send message">↑</button>
+      </form>
+      <p class="ai-status" id="aiStatus">AI answers may be wrong. Verify tournament-impacting rulings.</p>
+    </section>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
